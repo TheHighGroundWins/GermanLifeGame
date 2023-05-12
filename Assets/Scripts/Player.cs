@@ -12,15 +12,18 @@ public class Player : MonoBehaviour
     private Vector2 movement;
     private bool allowMove = true;
 
+    private TMP_Text currentTextBubble;
+    [SerializeField]
+    private GameObject baseText;
     [SerializeField] private GameObject textBubble;
-    [SerializeField] private GameObject textBubble2;
-
+    [SerializeField] private bool jewish = true;
 
     // Start is called before the first frame update
     void Start()
     {
         //get rigid body
         rb = GetComponent<Rigidbody2D>();
+        currentTextBubble = baseText.GetComponent<TMP_Text>();
     }
 
     // Update is called once per frame
@@ -35,14 +38,11 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D col)
     {
         
-        if (col.tag == "Interact" && allowMove && col.name=="Interact")
+        if (col.tag == "Interact" && allowMove)
         {
+            //save reference to the text bubble in the object
+            currentTextBubble.text = col.gameObject.GetComponent<Interactions>().GetTextBubble(jewish);
             textBubble.SetActive(true);
-            allowMove = false;
-        }
-        if (col.tag == "Interact" && allowMove && col.name=="HorstWessel")
-        {
-            textBubble2.SetActive(true);
             allowMove = false;
         }
     }
@@ -52,12 +52,21 @@ public class Player : MonoBehaviour
     {
         if(allowMove)
         rb.MovePosition(rb.position+movement*speed*Time.fixedDeltaTime);
-        if (Input.GetAxis("Interact")>0 && !allowMove)
+        if (Input.GetButtonDown("Interact") && !allowMove && textBubble.activeSelf)
         {
             textBubble.SetActive(false);
-            if(textBubble2!=null)
-            textBubble2.SetActive(false);
             allowMove = true;
         }
+    }
+
+    public bool GetJewish()
+    {
+        return jewish;
+    }
+
+    public bool AllowMove
+    {
+        get => allowMove;
+        set => allowMove = value;
     }
 }

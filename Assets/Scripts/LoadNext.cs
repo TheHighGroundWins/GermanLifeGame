@@ -13,21 +13,12 @@ public class LoadNext : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.name == "Gentile" && SceneManager.GetActiveScene().name=="Intro")
+        if (!col.gameObject.Equals(jewishPlayer))
         {
             col.gameObject.SetActive(false);
             jewishPlayer.SetActive(true);
         }
-        else if(SceneManager.GetActiveScene().name=="Intro")
-        {
-            SceneManager.LoadScene(nextScene);
-        }
-        if (col.name == "Jewish" && SceneManager.GetActiveScene().name=="Mid")
-        {
-            col.gameObject.SetActive(false);
-            jewishPlayer.SetActive(true);
-        }
-        else if(SceneManager.GetActiveScene().name=="Mid")
+        else
         {
             SceneManager.LoadScene(nextScene);
         }

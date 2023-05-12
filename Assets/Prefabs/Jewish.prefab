@@ -43,6 +43,10 @@ PrefabInstance:
       propertyPath: dialogue.Array.data[0]
       value: ...
       objectReference: {fileID: 0}
+    - target: {fileID: 6349480493627624609, guid: f1f2834679efd78b9a84617d211bdb99, type: 3}
+      propertyPath: jewish
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6349480493627624636, guid: f1f2834679efd78b9a84617d211bdb99, type: 3}
       propertyPath: m_Name
       value: Jewish

@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Kris.unity
     guid: bc4163c6413495cbc8b7afcc3db28151
   - enabled: 1
-    path: Assets/Scenes/Bibliography.unity
+    path: Assets/Scenes/KrisAftermath.unity
+    guid: 9774be8a94c333f5d81c41dee5b91ab9
+  - enabled: 1
+    path: Assets/Scenes/Bib.unity
     guid: 031adbb83c490388c84095831ab0084b
   m_configObjects: {}

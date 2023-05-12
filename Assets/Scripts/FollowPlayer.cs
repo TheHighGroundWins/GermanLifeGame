@@ -20,14 +20,14 @@ public class FollowPlayer : MonoBehaviour
         {
             transform.position =
                 new Vector3(jTrans.position.x,
-                    jTrans.position.y, transform.position.z);
+                    jTrans.position.y+2, transform.position.z);
         }
 
         if (gP.activeSelf)
         {
             transform.position =
                 new Vector3(gTrans.position.x,
-                    gTrans.position.y, transform.position.z);
+                    gTrans.position.y+2, transform.position.z);
         }
     }
 }

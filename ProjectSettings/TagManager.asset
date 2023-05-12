@@ -51,3 +51,6 @@ TagManager:
   - name: Player
     uniqueID: 3416215863
     locked: 0
+  - name: Tutorial
+    uniqueID: 370957609
+    locked: 0
